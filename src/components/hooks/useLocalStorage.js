@@ -4,7 +4,7 @@ export const useLocalStorage = (key, initialValue) => {
     // retrieve an item from localStorage, call localStorage.getItem('foobar')
     const [storedValue, setStoredValue] = useState(() => {
         // get from local storage by key
-        const item = widnow.localStorage.getItem(key);
+        const item = window.localStorage.getItem(key);
         // parse and return stored json or initial value
         return item ? JSON.parse(item) : initialValue;
     })
@@ -16,5 +16,5 @@ export const useLocalStorage = (key, initialValue) => {
         window.localStorage.setItem(key, JSON.stringify(value))
     };
 
-    return [storedValue];
+    return [storedValue, setValue];
 };

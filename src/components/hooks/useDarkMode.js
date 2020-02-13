@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const useDarkMode = key => {
-    const [theme, setTheme] = useLocalStorage(key);
+export const useDarkMode = () => {
+    const [theme, setTheme] = useLocalStorage("dark-mode", false);
 
     // check value from useLocalStorage if true/false
     useEffect(() => {
-        if (useLocalStorage(theme) === true) {
+        if (theme === true) {
             return document.body.classList.add("dark-mode")
         } else {
             return document.body.classList.remove("dark-mode")
